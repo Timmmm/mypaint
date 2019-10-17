@@ -6,7 +6,7 @@ a = Analysis(['mypaint.py'],
              pathex=['/Users/timh/local/mypaint/mypaint'],
              binaries=[
                  ('build/lib.macosx-10.14-x86_64-3.7/lib/_mypaintlib.cpython-37m-darwin.so', 'lib'),
-                 ('install/lib/libmypaint-2.0.0.dylib', '.'),
+                 ('../install/lib/libmypaint-2.0.0.dylib', '.'),
              ],
              datas=[
                  ('backgrounds', 'share/mypaint/backgrounds'),
