@@ -771,8 +771,6 @@ def pkgconfig(packages, **kwopts):
                 kw = extras_key
                 val = conf_arg
             kwopts.setdefault(kw, []).append(val)
-    for kw, val in list(kwopts.items()):
-        kwopts[kw] = uniq(val)
     return kwopts
 
 
