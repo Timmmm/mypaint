@@ -196,8 +196,22 @@ def get_paths():
         iconspath = join(libpath, 'share', 'icons')
         logger.info("Installation layout: Windows fallback, assuming py2exe")
     else:
-        logger.critical("Installation layout: unknown!")
-        raise RuntimeError("Unknown install type; could not determine paths")
+        # Check for pyinstaller
+        libpath = join(scriptdir, 'share', 'mypaint')
+        localepath = join(scriptdir, 'share', 'locale')
+        iconspath = join(scriptdir, 'share', 'icons')
+
+        if os.path.exists(libpath) and os.path.exists(iconspath):
+            libpath_compiled = join(scriptdir, 'lib', 'mypaint')  # or lib64?
+            sys.path.insert(0, libpath)
+            sys.path.insert(0, libpath_compiled)
+            sys.path.insert(0, join(scriptdir, 'share'))  # for libmypaint
+            logger.info("Installation layout: pyinstaller "
+                        "with scriptdir %r",
+                        scriptdir)
+        else:
+            logger.critical(f"Installation layout: unknown!")
+            raise RuntimeError("Unknown install type; could not determine paths")
 
     assert isinstance(libpath, unicode)
 
