@@ -46,5 +46,5 @@ coll = COLLECT(exe,
 
 app = BUNDLE(coll,
              name='MyPaint.app',
-             icon=None,
+             icon='desktop/MyPaint.icns',
              bundle_identifier='org.mypaint.timmmm')
