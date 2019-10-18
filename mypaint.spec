@@ -35,12 +35,12 @@ exe = EXE(pyz,
           bootloader_ignore_signals=False,
           strip=False,
           upx=False,
-          console=True )
+          console=False )
 coll = COLLECT(exe,
                a.binaries,
                a.zipfiles,
                a.datas,
-               strip=False,
+               strip=True,
                upx=False,
                upx_exclude=[],
                name='mypaint')
