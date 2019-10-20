@@ -48,4 +48,8 @@ coll = COLLECT(exe,
 app = BUNDLE(coll,
              name='MyPaint.app',
              icon='desktop/MyPaint.icns',
-             bundle_identifier='org.mypaint.timmmm')
+             bundle_identifier='org.mypaint.timmmm',
+             info_plist={
+                 'NSPrincipalClass': 'NSApplication',
+                 'NSHighResolutionCapable': 'True',
+             })
